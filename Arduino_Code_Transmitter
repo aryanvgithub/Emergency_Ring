@@ -1,0 +1,37 @@
+#include <SoftwareSerial.h>
+#include <TinyGPS.h>
+#include <RH_ASK.h>
+#include <SPI.h> 
+TinyGPS gps;
+SoftwareSerial serialgps(4,3);//3=rx,4=tx
+RH_ASK rf_driver;
+float latitude,longitude;
+String LAT;
+String LONG; 
+String inData;
+void setup()
+{
+rf_driver.init();
+Serial.begin(9600);
+serialgps.begin(9600);
+}
+
+void loop()
+{
+while(serialgps.available()) 
+{
+int c = serialgps.read(); 
+if(gps.encode(c)) 
+{
+float latitude, longitude;
+gps.f_get_position(&latitude, &longitude);
+LAT=String(latitude);
+LONG=String(longitude);
+inData="1"+LAT+","+LONG; //1 is the user id of the person registered with this device
+const char *msg = inData.c_str();
+rf_driver.send((uint8_t *)msg, strlen(msg));    
+rf_driver.waitPacketSent();
+delay(2000);
+}
+}
+}
