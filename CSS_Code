@@ -1,0 +1,21 @@
+.flex-box-container-1{
+    display: flex;
+    
+    flex-wrap: wrap;
+    padding: 10px;  
+  }
+  .flex-box-container-1 div{
+    display: flex;
+   
+    padding: 10px;  
+  }
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 15px;
+  }
+  table {
+    border-spacing: 50px;
+  }
