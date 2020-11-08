@@ -7,7 +7,7 @@ Microcontroller: Arduino Uno R3 (Atmega 328p based 8-bit Microcontroller),
 # Software Specification:
 Webpage Design: HTML and CSS,
  Microcontroller programming: C\C++ on Arduino IDE,
- Backend software Developmet: Python,
+ Backend software Development: Python,
  SMS Sending: Twilio Rest API.
 # Additional Info:
 We have stored the data of registered users in an excel sheet and then accessed it through python.
